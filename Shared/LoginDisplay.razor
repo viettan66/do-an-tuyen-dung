@@ -1,11 +1,15 @@
 @using System.Security.Claims
+@using Microsoft.AspNetCore.Components.Authorization
 @inject NavigationManager Nav
 @inject HttpClient Http
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
 <AuthorizeView>
     <Authorized>
-        <div class="d-flex align-items-center">
-            <span class="text-light me-3">Hello, @context.User.Identity?.Name</span>
+        <div class="d-flex align-items-center gap-2">
+            <span class="text-light fw-semibold">
+                👤 @context.User.Identity?.Name
+            </span>
             <button class="btn btn-outline-light btn-sm" @onclick="Logout">Logout</button>
         </div>
     </Authorized>
@@ -15,9 +19,23 @@
 </AuthorizeView>
 
 @code {
+    protected override void OnInitialized()
+    {
+        // Force refresh auth state when component initializes
+        StateHasChanged();
+    }
+
     private async Task Logout()
     {
-        await Http.PostAsync("/api/auth/logout", null);
-        Nav.NavigateTo(Nav.Uri, forceLoad: true);
+        try
+        {
+            await Http.PostAsync("/api/auth/logout", null);
+            Nav.NavigateTo("/", forceLoad: true);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Logout error: {ex.Message}");
+            Nav.NavigateTo("/", forceLoad: true);
+        }
     }
 }
