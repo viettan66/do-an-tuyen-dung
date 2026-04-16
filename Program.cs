@@ -22,7 +22,9 @@ builder.Services.AddSingleton<MockDataService>();
 builder.Services.AddHttpContextAccessor();
 
 // HttpClient for components to call minimal API endpoints
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.Configuration["BaseUrl"] ?? "http://localhost:5000") });
+var effectivePort = portEnv ?? "5000";
+var defaultBase = builder.Configuration["BaseUrl"] ?? $"http://localhost:{effectivePort}";
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(defaultBase) });
 
 // Cookie authentication
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
