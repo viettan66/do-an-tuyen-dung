@@ -22,8 +22,21 @@ builder.Services.AddSingleton<MockDataService>();
 builder.Services.AddHttpContextAccessor();
 
 // HttpClient for components to call minimal API endpoints
-// No BaseAddress = requests go to current host (localhost in dev, render.com in prod)
-builder.Services.AddScoped(sp => new HttpClient());
+// Set BaseAddress from current request context (works in dev and prod)
+builder.Services.AddScoped(sp =>
+{
+    var httpContextAccessor = sp.GetRequiredService<IHttpContextAccessor>();
+    var request = httpContextAccessor.HttpContext?.Request;
+    
+    if (request != null)
+    {
+        var baseUrl = $"{request.Scheme}://{request.Host}";
+        return new HttpClient { BaseAddress = new Uri(baseUrl) };
+    }
+    
+    // Fallback for contexts without HttpContext
+    return new HttpClient { BaseAddress = new Uri("http://localhost:5000") };
+});
 
 // Cookie authentication
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
