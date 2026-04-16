@@ -22,9 +22,8 @@ builder.Services.AddSingleton<MockDataService>();
 builder.Services.AddHttpContextAccessor();
 
 // HttpClient for components to call minimal API endpoints
-var effectivePort = portEnv ?? "5000";
-var defaultBase = builder.Configuration["BaseUrl"] ?? $"http://localhost:{effectivePort}";
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(defaultBase) });
+// No BaseAddress = requests go to current host (localhost in dev, render.com in prod)
+builder.Services.AddScoped(sp => new HttpClient());
 
 // Cookie authentication
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -54,26 +53,45 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapPost("/api/auth/login", async (LoginRequest req, MockDataService data, HttpContext http) =>
+app.MapPost("/api/auth/login", async (LoginRequest req, MockDataService data, HttpContext http, ILogger<Program> logger) =>
 {
-    if (req == null) return Results.BadRequest();
-    var user = data.ValidateUser(req.Username ?? string.Empty, req.Password ?? string.Empty);
-    if (user == null) return Results.Unauthorized();
+    try
+    {
+        if (req == null)
+        {
+            logger.LogWarning("Login request is null");
+            return Results.BadRequest();
+        }
+        
+        logger.LogInformation($"Login attempt: username={req.Username}");
+        var user = data.ValidateUser(req.Username ?? string.Empty, req.Password ?? string.Empty);
+        if (user == null)
+        {
+            logger.LogWarning($"Login failed: user not found or invalid password for username={req.Username}");
+            return Results.Unauthorized();
+        }
 
-    var claims = new List<Claim>
+        logger.LogInformation($"Login success: username={user.Username}, displayName={user.DisplayName}");
+        var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.Name, user.Username),
+            new Claim("DisplayName", user.DisplayName ?? user.Username)
+        };
+        var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        var principal = new ClaimsPrincipal(identity);
+        var props = new AuthenticationProperties
+        {
+            IsPersistent = true,
+            ExpiresUtc = DateTimeOffset.UtcNow.AddDays(2)
+        };
+        await http.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, props);
+        return Results.Ok(new { displayName = user.DisplayName });
+    }
+    catch (Exception ex)
     {
-        new Claim(ClaimTypes.Name, user.Username),
-        new Claim("DisplayName", user.DisplayName ?? user.Username)
-    };
-    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-    var principal = new ClaimsPrincipal(identity);
-    var props = new AuthenticationProperties
-    {
-        IsPersistent = true,
-        ExpiresUtc = DateTimeOffset.UtcNow.AddDays(2)
-    };
-    await http.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, props);
-    return Results.Ok(new { displayName = user.DisplayName });
+        logger.LogError(ex, "Unexpected error during login");
+        return Results.StatusCode(500);
+    }
 });
 
 app.MapPost("/api/auth/logout", async (HttpContext http) =>

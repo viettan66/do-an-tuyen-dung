@@ -4,7 +4,4 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-  <!-- Data files are included implicitly; copy behavior controlled by SDK default.
-       If you need explicit CopyToOutputDirectory behavior, set EnableDefaultContentItems to false and include files manually. -->
- 
 </Project>
