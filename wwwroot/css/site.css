@@ -1,3 +1,11 @@
+/* Job Detail Gradient BG */
+.job-detail-bg {
+  background: linear-gradient(120deg, #4e73df 0%, #6a82fb 100%);
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
 /* Simple modern styles + animations */
 :root {
   --primary: #667eea;
