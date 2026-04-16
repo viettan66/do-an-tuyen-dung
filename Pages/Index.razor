@@ -1,36 +1,153 @@
 @page "/"
+@using JobBoard.Models
 @inject MockDataService DataService
 @inject NavigationManager Nav
 
-<h1 class="mb-4">Job Openings</h1>
+<!-- Hero Slider Section -->
+<div class="hero-section position-relative overflow-hidden" style="height: 400px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <div class="position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
+        <div class="text-center text-white">
+            <div class="mb-3" style="font-size: 60px;">🚀</div>
+            <h1 class="display-4 fw-bold mb-3">Find Your Dream Job</h1>
+            <p class="lead mb-4">Thousands of opportunities are waiting for you.</p>
+            <button class="btn btn-light btn-lg px-5" @onclick="ScrollToJobs">Browse Jobs</button>
+        </div>
+    </div>
+    
+    <!-- Slider Dots -->
+    <div class="position-absolute bottom-0 start-50 translate-middle-x mb-3 d-flex gap-2">
+        <span class="slider-dot active" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.8); cursor: pointer;"></span>
+        <span class="slider-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer;"></span>
+        <span class="slider-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer;"></span>
+        <span class="slider-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer;"></span>
+    </div>
+    
+    <!-- Slider Nav Arrows -->
+    <button class="slider-nav-btn position-absolute start-0 top-50 translate-middle-y ms-3" style="background: rgba(255,255,255,0.3); border: none; color: white; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 24px;">❮</button>
+    <button class="slider-nav-btn position-absolute end-0 top-50 translate-middle-y me-3" style="background: rgba(255,255,255,0.3); border: none; color: white; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 24px;">❯</button>
+</div>
 
-<div class="row row-cols-1 row-cols-md-2 g-4">
-  @foreach(var job in jobs)
-  {
-     <div class="col">
-       <div class="card h-100 job-card animate-fade-in" @onclick="() => NavigateTo(job.Id)" style="cursor:pointer;">
-         <div class="card-body">
-            <h5 class="card-title">@job.Title</h5>
-            <p class="card-text text-muted">@job.ShortDescription</p>
-         </div>
-         <div class="card-footer">
-            <small class="text-muted">@job.Location &nbsp;•&nbsp; @job.PostedDate.ToString("yyyy-MM-dd")</small>
-         </div>
-       </div>
-     </div>
-  }
+<!-- Search Bar -->
+<div class="bg-light py-4 border-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="input-group input-group-lg">
+                    <input type="text" class="form-control" placeholder="Search jobs..." @bind="searchQuery" @onkeyup="HandleSearch" />
+                    <button class="btn btn-primary" type="button" @onclick="HandleSearch">🔍</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Job Listings Section -->
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h2 class="mb-1">
+                <i class="fas fa-briefcase me-2" style="color: #667eea;"></i>Job Listings
+            </h2>
+            <p class="text-muted">@(filteredJobs.Count()) positions available</p>
+        </div>
+    </div>
+
+    @if (filteredJobs.Count() == 0)
+    {
+        <div class="alert alert-info text-center py-5">
+            <p class="mb-0">No jobs found matching your search.</p>
+        </div>
+    }
+    else
+    {
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var job in filteredJobs)
+            {
+                <div class="col">
+                    <div class="card h-100 job-card shadow-sm border-0 animate-fade-in"
+                         @onclick="() => NavigateTo(job.Id)"
+                         style="cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">
+                        
+                        <!-- Job Card Image -->
+                        <div class="position-relative overflow-hidden" style="height: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <div class="position-absolute w-100 h-100 d-flex align-items-center justify-content-center text-white" style="font-size: 60px;">
+                                @GetJobEmoji(job.Title)
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">@job.Title</h5>
+                            <p class="card-text text-muted text-truncate">@job.ShortDescription</p>
+                        </div>
+
+                        <div class="card-footer bg-light border-0">
+                            <small class="text-muted">
+                                <span class="me-2">📍 @job.Location</span>
+                                <span class="ms-2">@job.PostedDate.ToString("yyyy-MM-dd")</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        @if (filteredJobs.Count() > 6)
+        {
+            <div class="text-center mt-4">
+                <button class="btn btn-outline-primary">Load More</button>
+            </div>
+        }
+    }
 </div>
 
 @code {
-    private IEnumerable<JobPosting> jobs = Array.Empty<JobPosting>();
+    private List<JobPosting> jobs = new();
+    private List<JobPosting> filteredJobs = new();
+    private string searchQuery = "";
 
     protected override void OnInitialized()
     {
-        jobs = DataService.GetJobs();
+        jobs = DataService.GetJobs().ToList();
+        filteredJobs = jobs;
     }
 
     void NavigateTo(int id)
     {
         Nav.NavigateTo($"/job/{id}");
+    }
+
+    private void HandleSearch()
+    {
+        if (string.IsNullOrWhiteSpace(searchQuery))
+        {
+            filteredJobs = jobs;
+        }
+        else
+        {
+            var query = searchQuery.ToLower();
+            filteredJobs = jobs.Where(j => 
+                j.Title.ToLower().Contains(query) || 
+                j.ShortDescription.ToLower().Contains(query) ||
+                j.Location.ToLower().Contains(query)
+            ).ToList();
+        }
+    }
+
+    private void ScrollToJobs()
+    {
+        // Scroll action placeholder
+    }
+
+    private string GetJobEmoji(string jobTitle)
+    {
+        return jobTitle.ToLower() switch
+        {
+            var t when t.Contains("engineer") => "👨‍💻",
+            var t when t.Contains("developer") => "💻",
+            var t when t.Contains("devops") => "⚙️",
+            var t when t.Contains("frontend") => "🎨",
+            var t when t.Contains("backend") => "🔧",
+            _ => "💼"
+        };
     }
 }

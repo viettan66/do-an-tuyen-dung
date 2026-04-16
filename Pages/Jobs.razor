@@ -1,0 +1,70 @@
+@page "/jobs"
+@using JobBoard.Models
+@inject MockDataService DataService
+@inject NavigationManager Nav
+
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h1 class="mb-3">All Job Listings</h1>
+            <p class="text-muted">Explore all available positions</p>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        @foreach (var job in jobs)
+        {
+            <div class="col">
+                <div class="card h-100 job-card shadow-sm border-0 animate-fade-in"
+                     @onclick="() => NavigateTo(job.Id)"
+                     style="cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">
+                    
+                    <div class="position-relative overflow-hidden" style="height: 150px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="position-absolute w-100 h-100 d-flex align-items-center justify-content-center text-white" style="font-size: 50px;">
+                            @GetJobEmoji(job.Title)
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">@job.Title</h5>
+                        <p class="card-text text-muted">@job.ShortDescription</p>
+                    </div>
+
+                    <div class="card-footer bg-light border-0">
+                        <small class="text-muted">
+                            <span class="me-2">📍 @job.Location</span>
+                            <span class="ms-2">@job.PostedDate.ToString("yyyy-MM-dd")</span>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private List<JobPosting> jobs = new();
+
+    protected override void OnInitialized()
+    {
+        jobs = DataService.GetJobs().ToList();
+    }
+
+    void NavigateTo(int id)
+    {
+        Nav.NavigateTo($"/job/{id}");
+    }
+
+    private string GetJobEmoji(string jobTitle)
+    {
+        return jobTitle.ToLower() switch
+        {
+            var t when t.Contains("engineer") => "👨‍💻",
+            var t when t.Contains("developer") => "💻",
+            var t when t.Contains("devops") => "⚙️",
+            var t when t.Contains("frontend") => "🎨",
+            var t when t.Contains("backend") => "🔧",
+            _ => "💼"
+        };
+    }
+}

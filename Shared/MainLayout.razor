@@ -1,28 +1,31 @@
 @using JobBoard.Components
 @inherits LayoutComponentBase
-<div class="page">
+
+<div class="page d-flex flex-column" style="min-height: 100vh;">
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
        <div class="container">
-          <a class="navbar-brand" href="/">JobBoard</a>
+          <a class="navbar-brand fw-bold" href="/">
+            <span class="me-2">💼</span>JobFinder
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
              <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-             <ul class="navbar-nav me-auto">
+             <ul class="navbar-nav ms-auto">
                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+               <li class="nav-item"><a class="nav-link" href="/jobs">Jobs</a></li>
+               <li class="nav-item"><LoginDisplay /></li>
              </ul>
-             <div class="d-flex">
-               <LoginDisplay />
-             </div>
           </div>
        </div>
     </nav>
   </header>
 
-  <main class="container py-4">
+  <main class="flex-grow-1">
     @Body
   </main>
 
   <BackToTop />
+  <Footer />
 </div>
