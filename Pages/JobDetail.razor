@@ -1,0 +1,32 @@
+@page "/job/{Id:int}"
+@inject MockDataService DataService
+@inject NavigationManager Nav
+
+@if (job == null)
+{
+    <p>Job not found.</p>
+}
+else
+{
+  <div class="card">
+    <div class="card-body">
+       <h2>@job.Title</h2>
+       <p class="text-muted">@job.Location • @job.PostedDate.ToString("yyyy-MM-dd")</p>
+       <hr />
+       <p>@job.FullDescription</p>
+       <button class="btn btn-secondary mt-3" @onclick="() => Nav.NavigateTo(\"/\")">Back</button>
+    </div>
+  </div>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private JobPosting? job;
+
+    protected override void OnInitialized()
+    {
+        job = DataService.GetJobById(Id);
+    }
+}

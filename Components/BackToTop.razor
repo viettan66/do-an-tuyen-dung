@@ -1,0 +1,17 @@
+@using Microsoft.JSInterop
+@inject IJSRuntime JS
+
+<button id="backToTopBtn" class="btn btn-primary back-to-top d-none" title="Back to top">
+  ↑ Top
+</button>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("jobBoard.initBackToTop", "backToTopBtn");
+            await JS.InvokeVoidAsync("jobBoard.initFadeIn");
+        }
+    }
+}

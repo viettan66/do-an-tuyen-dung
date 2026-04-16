@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "Title": "Senior .NET Engineer",
+    "ShortDescription": "Design and implement .NET applications.",
+    "FullDescription": "We are seeking a Senior .NET Engineer to design and implement web applications using .NET 8 and Blazor Server. Responsibilities include system design, building UIs, mentoring teammates, and ensuring delivery quality.",
+    "Location": "Remote",
+    "PostedDate": "2026-04-01T00:00:00"
+  },
+  {
+    "Id": 2,
+    "Title": "Frontend Developer (Blazor)",
+    "ShortDescription": "Build modern UIs with Blazor.",
+    "FullDescription": "Work with designers to build responsive UIs using Blazor Server and Bootstrap. Good knowledge of CSS and JS interop is a plus.",
+    "Location": "Hanoi, Vietnam",
+    "PostedDate": "2026-03-20T00:00:00"
+  },
+  {
+    "Id": 3,
+    "Title": "DevOps Engineer",
+    "ShortDescription": "Deploy and maintain CI/CD pipelines.",
+    "FullDescription": "Maintain infrastructure, setup pipelines on Render.com, ensure deployments are reliable and secure.",
+    "Location": "Remote",
+    "PostedDate": "2026-04-10T00:00:00"
+  }
+]

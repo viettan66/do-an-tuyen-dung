@@ -1,0 +1,36 @@
+@page "/"
+@inject MockDataService DataService
+@inject NavigationManager Nav
+
+<h1 class="mb-4">Job Openings</h1>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  @foreach(var job in jobs)
+  {
+     <div class="col">
+       <div class="card h-100 job-card animate-fade-in" @onclick="() => NavigateTo(job.Id)" style="cursor:pointer;">
+         <div class="card-body">
+            <h5 class="card-title">@job.Title</h5>
+            <p class="card-text text-muted">@job.ShortDescription</p>
+         </div>
+         <div class="card-footer">
+            <small class="text-muted">@job.Location &nbsp;•&nbsp; @job.PostedDate.ToString("yyyy-MM-dd")</small>
+         </div>
+       </div>
+     </div>
+  }
+</div>
+
+@code {
+    private IEnumerable<JobPosting> jobs = Array.Empty<JobPosting>();
+
+    protected override void OnInitialized()
+    {
+        jobs = DataService.GetJobs();
+    }
+
+    void NavigateTo(int id)
+    {
+        Nav.NavigateTo($"/job/{id}");
+    }
+}
