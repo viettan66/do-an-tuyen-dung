@@ -3,5 +3,11 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
   </PropertyGroup>
+
+  <!-- Explicitly copy Data JSON files to output and publish directories -->
+  <ItemGroup>
+    <Content Include="Data\*.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>
