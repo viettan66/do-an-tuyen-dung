@@ -1,0 +1,13 @@
+bin/
+obj/
+**/bin/
+**/obj/
+publish/
+.git/
+.vs/
+.vscode/
+*.user
+*.suo
+*.md
+Dockerfile
+render.yaml

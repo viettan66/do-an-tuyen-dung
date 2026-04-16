@@ -30,25 +30,37 @@ Render.com deployment:
 If Render requires an explicit port binding, modify Program.cs to read `PORT` env variable and set Kestrel accordingly.
 Render-specific notes (recommended):
 
-- This repository includes `render.yaml` which configures a Web Service for Render.com (build/start commands and `ASPNETCORE_URLS` env var).
-- The app will bind to the runtime `PORT` env var automatically if provided (Program.cs checks `PORT` and calls `UseUrls`).
+- This repository includes `render.yaml` which configures a Web Service for Render.com. You can deploy either as a managed .NET Web Service or as a Docker Web Service.
 
-Render settings to use if not using `render.yaml`:
+If you want Render to build the .NET project (managed .NET):
 
-Build Command:
-```
+1. Set `env: dotnet` in `render.yaml` (or choose `.NET` as the Language in the Render UI).
+2. Build Command:
+
+```bash
 dotnet publish -c Release -o ./publish
 ```
 
-Start Command:
-```
+3. Start Command:
+
+```bash
 dotnet ./publish/JobBoard.dll
 ```
 
-Environment variable (set on Render dashboard):
+If you prefer Docker (recommended when the Render UI doesn't show `.NET`), use the included `Dockerfile` and set `env: docker` in `render.yaml` or choose `Docker` in the Render UI. Render will build the image from the Dockerfile.
+
+Local Docker build & run example:
+
+```bash
+docker build -t jobboard .
+docker run -e PORT=5000 -p 5000:5000 jobboard
 ```
-ASPNETCORE_URLS = http://0.0.0.0:$PORT
-```
+
+Render Docker notes:
+
+- Select **Docker** as the environment when creating a new Web Service on Render.
+- Ensure `Dockerfile` is in the repository root (this project includes one).
+- Render will expose a runtime `PORT` env var; the Dockerfile uses that to bind Kestrel.
 
 Notes on scaling: for multiple instances you should configure a persistent Data Protection key store (Redis or external storage) so authentication cookies are valid across instances.
 

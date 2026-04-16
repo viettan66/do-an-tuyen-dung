@@ -1,10 +1,10 @@
 services:
   - type: web
     name: jobboard
-    env: dotnet
+    env: docker
     plan: free
-    buildCommand: dotnet publish -c Release -o ./publish
-    startCommand: dotnet ./publish/JobBoard.dll
+    dockerfilePath: Dockerfile
+    # Render will build the Docker image using the Dockerfile; no explicit build/start commands required.
     envVars:
       - key: ASPNETCORE_URLS
         value: http://0.0.0.0:$PORT
