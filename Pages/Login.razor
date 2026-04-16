@@ -90,7 +90,8 @@
             {
                 var responseText = await res.Content.ReadAsStringAsync();
                 Console.WriteLine($"[DEBUG] Login successful: {responseText}");
-                // reload to pick up auth cookie
+                // Wait slightly for cookie to be fully set, then reload page to refresh auth context
+                await Task.Delay(500);
                 Nav.NavigateTo("/", forceLoad: true);
             }
             else if (res.StatusCode == System.Net.HttpStatusCode.Unauthorized)
