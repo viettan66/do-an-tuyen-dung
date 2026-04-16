@@ -6,6 +6,15 @@ using JobBoard.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// If running on Render (or other PaaS) the platform provides a PORT env var.
+// Bind Kestrel to that port so Render can route traffic correctly.
+var portEnv = Environment.GetEnvironmentVariable("PORT");
+if (!string.IsNullOrEmpty(portEnv))
+{
+    // Listen on all network interfaces on the provided port
+    builder.WebHost.UseUrls($"http://0.0.0.0:{portEnv}");
+}
+
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();

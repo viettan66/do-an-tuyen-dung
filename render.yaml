@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: jobboard
+    env: dotnet
+    plan: free
+    buildCommand: dotnet publish -c Release -o ./publish
+    startCommand: dotnet ./publish/JobBoard.dll
+    envVars:
+      - key: ASPNETCORE_URLS
+        value: http://0.0.0.0:$PORT
