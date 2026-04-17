@@ -46,23 +46,9 @@
     {
         try
         {
-            // Call logout from browser so cookie clearance Set-Cookie is applied
-            var jsRes = await JSRuntime.InvokeAsync<System.Text.Json.JsonElement>("jobBoard.logout", "/api/auth/logout");
-            Console.WriteLine($"[DEBUG] Logout raw jsRes: {jsRes}");
-            int status = 0;
-            if (jsRes.ValueKind == System.Text.Json.JsonValueKind.Object && jsRes.TryGetProperty("status", out var sProp) && sProp.ValueKind == System.Text.Json.JsonValueKind.Number)
-            {
-                status = sProp.GetInt32();
-            }
-            Console.WriteLine($"[DEBUG] Logout status: {status}");
-            if (status != 200)
-            {
-                // show an alert for debugging; still navigate home
-                try { await JSRuntime.InvokeVoidAsync("alert", $"Logout returned status {status}"); } catch { }
-            }
-            // small delay to let browser update cookies
-            await Task.Delay(250);
-            Nav.NavigateTo("/", forceLoad: true);
+            // Submit a form POST so the browser receives Set-Cookie and follows redirects
+            await JSRuntime.InvokeVoidAsync("jobBoard.logoutForm", "/api/auth/logout");
+            // Do not navigate from Blazor; the browser will follow the server redirect to '/'.
         }
         catch (Exception ex)
         {

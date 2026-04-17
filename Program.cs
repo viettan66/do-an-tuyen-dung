@@ -118,7 +118,8 @@ app.MapPost("/api/auth/login", async (LoginRequest req, MockDataService data, Ht
 app.MapPost("/api/auth/logout", async (HttpContext http) =>
 {
     await http.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-    return Results.Ok();
+    // After sign-out, redirect browser to home so cookie removal is reflected immediately
+    return Results.Redirect("/");
 });
 
 app.MapBlazorHub();

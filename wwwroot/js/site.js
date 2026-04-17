@@ -59,6 +59,21 @@ window.jobBoard = (function() {
       return { status: res.status, text };
     },
 
+    // Perform logout via HTML form POST so browser handles Set-Cookie and redirects
+    logoutForm: function(url) {
+      try {
+        console.log('[jobBoard] logoutForm: submitting form to', url);
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = url;
+        form.style.display = 'none';
+        document.body.appendChild(form);
+        form.submit();
+      } catch (e) {
+        console.error('logoutForm error', e);
+      }
+    },
+
     // Simple hero slider: switches hero text and active dot
     initHeroSlider: function(heroSelector) {
       try {
