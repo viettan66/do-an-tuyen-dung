@@ -40,3 +40,12 @@ window.jobBoard.login = async function(url, model) {
   return { status: res.status, text };
 };
 
+window.jobBoard.logout = async function(url) {
+  const res = await fetch(url, {
+    method: 'POST',
+    credentials: 'same-origin'
+  });
+  const text = await res.text();
+  return { status: res.status, text };
+};
+
