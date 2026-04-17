@@ -104,7 +104,7 @@
               // Force full reload so Blazor picks up new auth state and header updates
               Nav.NavigateTo("/", forceLoad: true);
             }
-            else if (res.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+            else if (status == (int)System.Net.HttpStatusCode.Unauthorized)
             {
               error = "Tên đăng nhập hoặc mật khẩu không đúng";
               debugMessage = "Login unauthorized";
@@ -112,10 +112,9 @@
             }
             else
             {
-                var responseText = await res.Content.ReadAsStringAsync();
-                Console.WriteLine($"[DEBUG] Login failed ({res.StatusCode}): {responseText}");
-                error = $"Login failed ({res.StatusCode}). Please try again.";
-                debugMessage = $"Login failed: {res.StatusCode}";
+                Console.WriteLine($"[DEBUG] Login failed ({status}): {responseText}");
+                error = $"Login failed ({status}). Please try again.";
+                debugMessage = $"Login failed: {status}";
                 StateHasChanged();
             }
         }
