@@ -21,10 +21,11 @@
 @code {
     private AuthenticationState? authState;
 
-
     protected override async Task OnInitializedAsync()
     {
+        // Lấy trạng thái hiện tại và đăng ký lắng nghe thay đổi
         authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        AuthenticationStateProvider.AuthenticationStateChanged += OnAuthStateChanged;
         StateHasChanged();
     }
 
@@ -48,5 +49,17 @@
             Console.WriteLine($"Logout error: {ex.Message}");
             Nav.NavigateTo("/", forceLoad: true);
         }
+    }
+
+    private void OnAuthStateChanged(Task<AuthenticationState> task)
+    {
+        // Khi auth state thay đổi, yêu cầu re-render component
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        // Hủy đăng ký để tránh rò rỉ bộ nhớ
+        AuthenticationStateProvider.AuthenticationStateChanged -= OnAuthStateChanged;
     }
 }
