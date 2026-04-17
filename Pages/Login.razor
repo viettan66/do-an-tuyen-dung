@@ -78,13 +78,12 @@
             
             if (res.IsSuccessStatusCode)
             {
-                var responseText = await res.Content.ReadAsStringAsync();
-                Console.WriteLine($"[DEBUG] Login successful: {responseText}");
-                // Wait for cookie to settle
-                await Task.Delay(500);
-                // Force complete page reload from browser (bypasses Blazor circuit)
-                // This ensures fresh auth state evaluation
-                await JSRuntime.InvokeVoidAsync("eval", "window.location.href='/'");
+              var responseText = await res.Content.ReadAsStringAsync();
+              Console.WriteLine($"[DEBUG] Login successful: {responseText}");
+              // Wait for cookie to settle
+              await Task.Delay(500);
+              // Force full reload so Blazor picks up new auth state and header updates
+              await JSRuntime.InvokeVoidAsync("eval", "window.location.replace(window.location.origin + '/')");
             }
             else if (res.StatusCode == System.Net.HttpStatusCode.Unauthorized)
             {
