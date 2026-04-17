@@ -51,8 +51,8 @@
             <p class="text-muted">Có @(filteredJobs.Count()) vị trí</p>
         </div>
     </div>
-
-        if (filteredJobs.Count() == 0)
+        
+        @if (filteredJobs.Count() == 0)
     {
         <div class="alert alert-info text-center py-5">
             <p class="mb-0">Không tìm thấy công việc phù hợp.</p>

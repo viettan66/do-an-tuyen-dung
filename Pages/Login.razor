@@ -39,6 +39,14 @@
             <span class="text-danger fw-semibold">@error</span>
           </div>
         }
+        
+        <!-- Temporary debug panel -->
+        @if (!string.IsNullOrEmpty(debugMessage))
+        {
+            <div class="text-center mt-3">
+                <span class="text-info">@debugMessage</span>
+            </div>
+        }
       </EditForm>
     </div>
   </div>
@@ -59,21 +67,29 @@
 
     private async Task HandleLogin()
     {
+      debugMessage = "HandleLogin called";
+      StateHasChanged();
       try
       {
         if (string.IsNullOrWhiteSpace(loginModel.Username) || string.IsNullOrWhiteSpace(loginModel.Password))
         {
           error = "Vui lòng điền đầy đủ thông tin";
+          debugMessage = "Validation failed: missing fields";
+          StateHasChanged();
           return;
         }
         isLoading = true;
         error = null;
             
+            debugMessage = "Sending login request...";
+            StateHasChanged();
             Console.WriteLine($"[DEBUG] Sending login request: username={loginModel.Username}");
             
             using var cts = new System.Threading.CancellationTokenSource(TimeSpan.FromSeconds(30));
             var res = await Http.PostAsJsonAsync("/api/auth/login", loginModel, cts.Token);
             
+            debugMessage = $"Response status: {res.StatusCode}";
+            StateHasChanged();
             Console.WriteLine($"[DEBUG] Response status: {res.StatusCode}");
             
             if (res.IsSuccessStatusCode)
@@ -82,33 +98,45 @@
               Console.WriteLine($"[DEBUG] Login successful: {responseText}");
               // Wait for cookie to settle
               await Task.Delay(500);
+              debugMessage = "Login success, navigating to /";
+              StateHasChanged();
               // Force full reload so Blazor picks up new auth state and header updates
               Nav.NavigateTo("/", forceLoad: true);
             }
             else if (res.StatusCode == System.Net.HttpStatusCode.Unauthorized)
             {
               error = "Tên đăng nhập hoặc mật khẩu không đúng";
+              debugMessage = "Login unauthorized";
+              StateHasChanged();
             }
             else
             {
                 var responseText = await res.Content.ReadAsStringAsync();
                 Console.WriteLine($"[DEBUG] Login failed ({res.StatusCode}): {responseText}");
                 error = $"Login failed ({res.StatusCode}). Please try again.";
+                debugMessage = $"Login failed: {res.StatusCode}";
+                StateHasChanged();
             }
         }
         catch (System.Threading.Tasks.TaskCanceledException)
         {
           Console.WriteLine("[ERROR] Login request timed out");
           error = "Yêu cầu hết thời gian. Vui lòng kiểm tra kết nối.";
+          debugMessage = "Login request timed out";
+          StateHasChanged();
         }
         catch (Exception ex)
         {
           Console.WriteLine($"[ERROR] Login exception: {ex.Message}");
           error = $"Lỗi: {ex.Message}";
+          debugMessage = $"Exception: {ex.Message}";
+          StateHasChanged();
         }
         finally
         {
             isLoading = false;
         }
     }
+
+    private string? debugMessage;
 }
