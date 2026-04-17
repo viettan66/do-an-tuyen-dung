@@ -28,3 +28,15 @@ window.jobBoard = {
   }
 };
 
+// Perform login via browser fetch so Set-Cookie can be stored by the browser
+window.jobBoard.login = async function(url, model) {
+  const res = await fetch(url, {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(model)
+  });
+  const text = await res.text();
+  return { status: res.status, text };
+};
+

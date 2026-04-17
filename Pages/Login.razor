@@ -85,16 +85,17 @@
             StateHasChanged();
             Console.WriteLine($"[DEBUG] Sending login request: username={loginModel.Username}");
             
-            using var cts = new System.Threading.CancellationTokenSource(TimeSpan.FromSeconds(30));
-            var res = await Http.PostAsJsonAsync("/api/auth/login", loginModel, cts.Token);
-            
-            debugMessage = $"Response status: {res.StatusCode}";
+            // Use browser fetch via JS interop so the POST comes from the browser
+            // (required for Set-Cookie to be applied to the browser)
+            var jsRes = await JSRuntime.InvokeAsync<System.Text.Json.JsonElement>("jobBoard.login", "/api/auth/login", loginModel);
+            var status = jsRes.GetProperty("status").GetInt32();
+            var responseText = jsRes.GetProperty("text").GetString();
+            debugMessage = $"Response status: {status}";
             StateHasChanged();
-            Console.WriteLine($"[DEBUG] Response status: {res.StatusCode}");
+            Console.WriteLine($"[DEBUG] Response status: {status}");
             
-            if (res.IsSuccessStatusCode)
+            if (status >= 200 && status < 300)
             {
-              var responseText = await res.Content.ReadAsStringAsync();
               Console.WriteLine($"[DEBUG] Login successful: {responseText}");
               // Wait for cookie to settle
               await Task.Delay(500);
