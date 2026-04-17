@@ -13,7 +13,9 @@
                 <span class="me-2">👤</span>
                 <span>@(displayName ?? authState?.User?.Identity?.Name)</span>
             </span>
-            <button class="btn btn-outline-light btn-sm" @onclick="Logout">Đăng xuất</button>
+            <form method="post" action="/api/auth/logout" class="m-0 p-0">
+                <button type="submit" class="btn btn-outline-light btn-sm">Đăng xuất</button>
+            </form>
         </div>
     </Authorized>
     <NotAuthorized>
