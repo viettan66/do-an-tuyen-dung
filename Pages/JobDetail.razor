@@ -1,4 +1,4 @@
-@page "/job/{Id:int}"
+@page "/job/{id:int}"
 @using JobBoard.Models
 @inject MockDataService DataService
 @inject NavigationManager Nav
@@ -96,13 +96,11 @@ else
 
 @code {
   [Parameter]
-  public int Id { get; set; }
-
-  private JobPosting? job;
+    public int id { get; set; }
 
   protected override void OnInitialized()
   {
-    job = DataService.GetJobById(Id);
+    job = DataService.GetJobById(id);
     if (job == null)
     {
       // Redirect to jobs if not found
