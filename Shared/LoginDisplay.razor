@@ -3,6 +3,7 @@
 @inject NavigationManager Nav
 @inject HttpClient Http
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@implements IDisposable
 
 <AuthorizeView>
     <Authorized>
@@ -20,11 +21,13 @@
 
 @code {
     private AuthenticationState? authState;
+    private string? displayName;
 
     protected override async Task OnInitializedAsync()
     {
         // Lấy trạng thái hiện tại và đăng ký lắng nghe thay đổi
         authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        displayName = GetDisplayName(authState);
         AuthenticationStateProvider.AuthenticationStateChanged += OnAuthStateChanged;
         StateHasChanged();
     }
@@ -33,6 +36,7 @@
     {
         // Đảm bảo component luôn cập nhật khi có thay đổi auth state
         authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        displayName = GetDisplayName(authState);
         StateHasChanged();
     }
 
@@ -51,10 +55,30 @@
         }
     }
 
-    private void OnAuthStateChanged(Task<AuthenticationState> task)
+    private async Task OnAuthStateChanged(Task<AuthenticationState> task)
     {
-        // Khi auth state thay đổi, yêu cầu re-render component
-        InvokeAsync(StateHasChanged);
+        // Khi auth state thay đổi, cập nhật tên hiển thị và re-render component
+        try
+        {
+            var s = await task;
+            authState = s;
+            displayName = GetDisplayName(s);
+            await InvokeAsync(StateHasChanged);
+        }
+        catch
+        {
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private string? GetDisplayName(AuthenticationState? state)
+    {
+        var user = state?.User;
+        if (user == null) return null;
+        // Try common claim types for display name
+        return user.Identity?.Name
+            ?? user.FindFirst("DisplayName")?.Value
+            ?? user.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value;
     }
 
     public void Dispose()
