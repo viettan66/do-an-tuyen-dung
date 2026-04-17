@@ -1,11 +1,33 @@
 [
   {
     "Id": 1,
-    "Title": "Senior .NET Engineer",
-    "ShortDescription": "Design and implement .NET applications.",
-    "FullDescription": "We are seeking a Senior .NET Engineer to design and implement web applications using .NET 8 and Blazor Server. Responsibilities include system design, building UIs, mentoring teammates, and ensuring delivery quality.",
-    "Location": "Remote",
-    "PostedDate": "2026-04-01T00:00:00"
+    "Title": "Senior .NET Developer",
+    "ShortDescription": "Build scalable .NET web apps.",
+    "FullDescription": "We are looking for an experienced .NET Developer to join our engineering team. You will build scalable, high-performance web applications using ASP.NET Core and Blazor.",
+    "Location": "Ho Chi Minh City, VN",
+    "PostedDate": "2026-04-15T00:00:00",
+    "Type": "Full-time",
+    "Department": "Engineering",
+    "Salary": "$2000 - $3000",
+    "Description": "We are looking for an experienced .NET Developer to join our engineering team. You will build scalable, high-performance web applications using ASP.NET Core and Blazor.",
+    "Responsibilities": [
+      "Design and develop web applications using .NET 8 & Blazor Server",
+      "Build RESTful APIs and integrate with microservices",
+      "Write clean, maintainable, and efficient code",
+      "Collaborate with UI/UX designers and product managers",
+      "Participate in code reviews and improve system performance"
+    ],
+    "Requirements": [
+      "3+ years of experience with .NET / C#",
+      "Strong knowledge of Blazor Server, ASP.NET Core",
+      "Experience with Git, CI/CD is a plus",
+      "Good problem-solving and teamwork skills",
+      "Bachelor's degree in Computer Science or related field"
+    ],
+    "Experience": "3+ years",
+    "Level": "Senior",
+    "RemoteType": "Hybrid / Remote",
+    "Deadline": "2026-01-31T00:00:00"
   },
   {
     "Id": 2,
@@ -13,7 +35,27 @@
     "ShortDescription": "Build modern UIs with Blazor.",
     "FullDescription": "Work with designers to build responsive UIs using Blazor Server and Bootstrap. Good knowledge of CSS and JS interop is a plus.",
     "Location": "Hanoi, Vietnam",
-    "PostedDate": "2026-03-20T00:00:00"
+    "PostedDate": "2026-03-20T00:00:00",
+    "Type": "Full-time",
+    "Department": "Frontend",
+    "Salary": "$1500 - $2500",
+    "Description": "Work with designers to build responsive UIs using Blazor Server and Bootstrap.",
+    "Responsibilities": [
+      "Develop UI components with Blazor",
+      "Ensure cross-browser compatibility",
+      "Work closely with backend team",
+      "Optimize UI for performance"
+    ],
+    "Requirements": [
+      "2+ years experience with Blazor or React/Vue",
+      "Strong CSS/HTML/JS skills",
+      "Experience with Figma/Zeplin",
+      "Attention to detail"
+    ],
+    "Experience": "2+ years",
+    "Level": "Mid",
+    "RemoteType": "Onsite / Remote",
+    "Deadline": "2026-02-15T00:00:00"
   },
   {
     "Id": 3,
@@ -21,6 +63,263 @@
     "ShortDescription": "Deploy and maintain CI/CD pipelines.",
     "FullDescription": "Maintain infrastructure, setup pipelines on Render.com, ensure deployments are reliable and secure.",
     "Location": "Remote",
-    "PostedDate": "2026-04-10T00:00:00"
+    "PostedDate": "2026-04-10T00:00:00",
+    "Type": "Full-time",
+    "Department": "DevOps",
+    "Salary": "$1800 - $2500",
+    "Description": "Maintain infrastructure, setup pipelines on Render.com, ensure deployments are reliable and secure.",
+    "Responsibilities": [
+      "Setup and maintain CI/CD pipelines",
+      "Monitor system health and uptime",
+      "Automate deployment processes",
+      "Work with security best practices"
+    ],
+    "Requirements": [
+      "Experience with Docker, GitHub Actions",
+      "Knowledge of cloud platforms (AWS/Azure)",
+      "Scripting (Bash, PowerShell)",
+      "Problem-solving skills"
+    ],
+    "Experience": "2+ years",
+    "Level": "Mid",
+    "RemoteType": "Remote",
+    "Deadline": "2026-03-01T00:00:00"
+  },
+  {
+    "Id": 4,
+    "Title": "QA Engineer",
+    "ShortDescription": "Test and ensure product quality.",
+    "FullDescription": "Manual and automated testing for web applications.",
+    "Location": "Da Nang, Vietnam",
+    "PostedDate": "2026-04-12T00:00:00",
+    "Type": "Full-time",
+    "Department": "QA",
+    "Salary": "$1200 - $1800",
+    "Description": "Manual and automated testing for web applications.",
+    "Responsibilities": [
+      "Write and execute test cases",
+      "Automate regression tests",
+      "Report and track bugs",
+      "Work with developers to resolve issues"
+    ],
+    "Requirements": [
+      "Experience with Selenium or Playwright",
+      "Attention to detail",
+      "Good communication skills"
+    ],
+    "Experience": "1+ years",
+    "Level": "Junior",
+    "RemoteType": "Onsite",
+    "Deadline": "2026-02-28T00:00:00"
+  },
+  {
+    "Id": 5,
+    "Title": "Product Manager",
+    "ShortDescription": "Lead product development.",
+    "FullDescription": "Define product vision, work with cross-functional teams.",
+    "Location": "Ho Chi Minh City, VN",
+    "PostedDate": "2026-04-05T00:00:00",
+    "Type": "Full-time",
+    "Department": "Product",
+    "Salary": "$2500 - $3500",
+    "Description": "Define product vision, work with cross-functional teams.",
+    "Responsibilities": [
+      "Define product roadmap",
+      "Gather and prioritize requirements",
+      "Coordinate with engineering and design",
+      "Monitor product KPIs"
+    ],
+    "Requirements": [
+      "Experience as Product Owner/Manager",
+      "Strong leadership skills",
+      "Analytical mindset"
+    ],
+    "Experience": "3+ years",
+    "Level": "Senior",
+    "RemoteType": "Hybrid",
+    "Deadline": "2026-03-15T00:00:00"
+  },
+  {
+    "Id": 6,
+    "Title": "UI/UX Designer",
+    "ShortDescription": "Design user interfaces and experiences.",
+    "FullDescription": "Work with product and engineering to design beautiful, usable interfaces.",
+    "Location": "Remote",
+    "PostedDate": "2026-04-13T00:00:00",
+    "Type": "Part-time",
+    "Department": "Design",
+    "Salary": "$1000 - $2000",
+    "Description": "Work with product and engineering to design beautiful, usable interfaces.",
+    "Responsibilities": [
+      "Create wireframes and prototypes",
+      "Conduct user research",
+      "Design UI assets",
+      "Collaborate with developers"
+    ],
+    "Requirements": [
+      "Portfolio of design projects",
+      "Experience with Figma/Sketch",
+      "Creativity and attention to detail"
+    ],
+    "Experience": "2+ years",
+    "Level": "Mid",
+    "RemoteType": "Remote",
+    "Deadline": "2026-03-10T00:00:00"
+  },
+  {
+    "Id": 7,
+    "Title": "Backend Developer (Node.js)",
+    "ShortDescription": "Develop backend services with Node.js.",
+    "FullDescription": "Build RESTful APIs and microservices using Node.js.",
+    "Location": "Hanoi, Vietnam",
+    "PostedDate": "2026-04-09T00:00:00",
+    "Type": "Full-time",
+    "Department": "Backend",
+    "Salary": "$1800 - $2500",
+    "Description": "Build RESTful APIs and microservices using Node.js.",
+    "Responsibilities": [
+      "Develop scalable backend services",
+      "Integrate with databases",
+      "Write unit and integration tests"
+    ],
+    "Requirements": [
+      "2+ years Node.js experience",
+      "Knowledge of SQL/NoSQL",
+      "Testing skills"
+    ],
+    "Experience": "2+ years",
+    "Level": "Mid",
+    "RemoteType": "Onsite / Remote",
+    "Deadline": "2026-03-20T00:00:00"
+  },
+  {
+    "Id": 8,
+    "Title": "Mobile App Developer",
+    "ShortDescription": "Build cross-platform mobile apps.",
+    "FullDescription": "Develop mobile apps using Flutter or React Native.",
+    "Location": "Remote",
+    "PostedDate": "2026-04-11T00:00:00",
+    "Type": "Full-time",
+    "Department": "Mobile",
+    "Salary": "$1700 - $2400",
+    "Description": "Develop mobile apps using Flutter or React Native.",
+    "Responsibilities": [
+      "Develop cross-platform mobile apps",
+      "Publish apps to App Store/Google Play",
+      "Work with REST APIs"
+    ],
+    "Requirements": [
+      "Experience with Flutter/React Native",
+      "Published apps on stores",
+      "UI/UX skills"
+    ],
+    "Experience": "1+ years",
+    "Level": "Junior",
+    "RemoteType": "Remote",
+    "Deadline": "2026-03-25T00:00:00"
+  },
+  {
+    "Id": 9,
+    "Title": "Business Analyst",
+    "ShortDescription": "Analyze business requirements.",
+    "FullDescription": "Work with stakeholders to gather and analyze requirements.",
+    "Location": "Ho Chi Minh City, VN",
+    "PostedDate": "2026-04-08T00:00:00",
+    "Type": "Full-time",
+    "Department": "Business",
+    "Salary": "$1600 - $2200",
+    "Description": "Work with stakeholders to gather and analyze requirements.",
+    "Responsibilities": [
+      "Gather business requirements",
+      "Document user stories",
+      "Support UAT and go-live"
+    ],
+    "Requirements": [
+      "Experience as BA",
+      "Good communication skills",
+      "Analytical mindset"
+    ],
+    "Experience": "2+ years",
+    "Level": "Mid",
+    "RemoteType": "Hybrid",
+    "Deadline": "2026-03-30T00:00:00"
+  },
+  {
+    "Id": 10,
+    "Title": "System Administrator",
+    "ShortDescription": "Maintain IT infrastructure.",
+    "FullDescription": "Manage servers, networks, and security.",
+    "Location": "Remote",
+    "PostedDate": "2026-04-07T00:00:00",
+    "Type": "Full-time",
+    "Department": "IT",
+    "Salary": "$1700 - $2300",
+    "Description": "Manage servers, networks, and security.",
+    "Responsibilities": [
+      "Maintain and monitor servers",
+      "Ensure network security",
+      "Backup and disaster recovery"
+    ],
+    "Requirements": [
+      "Linux/Windows admin skills",
+      "Network security knowledge",
+      "Backup/restore experience"
+    ],
+    "Experience": "2+ years",
+    "Level": "Mid",
+    "RemoteType": "Remote",
+    "Deadline": "2026-03-28T00:00:00"
+  },
+  {
+    "Id": 11,
+    "Title": "Content Writer",
+    "ShortDescription": "Write engaging content for web.",
+    "FullDescription": "Create blog posts, guides, and marketing content.",
+    "Location": "Remote",
+    "PostedDate": "2026-04-06T00:00:00",
+    "Type": "Part-time",
+    "Department": "Marketing",
+    "Salary": "$800 - $1200",
+    "Description": "Create blog posts, guides, and marketing content.",
+    "Responsibilities": [
+      "Write blog posts and articles",
+      "Edit and proofread content",
+      "Work with SEO best practices"
+    ],
+    "Requirements": [
+      "Excellent writing skills",
+      "SEO knowledge",
+      "Creativity"
+    ],
+    "Experience": "1+ years",
+    "Level": "Junior",
+    "RemoteType": "Remote",
+    "Deadline": "2026-03-22T00:00:00"
+  },
+  {
+    "Id": 12,
+    "Title": "Scrum Master",
+    "ShortDescription": "Facilitate agile ceremonies.",
+    "FullDescription": "Guide teams in agile best practices and remove impediments.",
+    "Location": "Hanoi, Vietnam",
+    "PostedDate": "2026-04-04T00:00:00",
+    "Type": "Full-time",
+    "Department": "Agile",
+    "Salary": "$2000 - $2700",
+    "Description": "Guide teams in agile best practices and remove impediments.",
+    "Responsibilities": [
+      "Facilitate daily standups, sprint planning",
+      "Remove team impediments",
+      "Coach agile principles"
+    ],
+    "Requirements": [
+      "Certified Scrum Master",
+      "Experience with agile teams",
+      "Strong communication skills"
+    ],
+    "Experience": "2+ years",
+    "Level": "Mid",
+    "RemoteType": "Hybrid",
+    "Deadline": "2026-03-18T00:00:00"
   }
 ]
