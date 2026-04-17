@@ -80,8 +80,9 @@
             {
                 var responseText = await res.Content.ReadAsStringAsync();
                 Console.WriteLine($"[DEBUG] Login successful: {responseText}");
-                // Delay to ensure cookie is set, then navigate using forceLoad
-                await Task.Delay(800);
+                // Wait longer for cookie to settle and be sent in next request
+                await Task.Delay(1000);
+                // Use Blazor's built-in navigation with forceLoad to force full page reload
                 Nav.NavigateTo("/", forceLoad: true);
             }
             else if (res.StatusCode == System.Net.HttpStatusCode.Unauthorized)
