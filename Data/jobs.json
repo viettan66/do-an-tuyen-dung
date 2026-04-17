@@ -2,324 +2,324 @@
   {
     "Id": 1,
     "Title": "Senior .NET Developer",
-    "ShortDescription": "Build scalable .NET web apps.",
-    "FullDescription": "We are looking for an experienced .NET Developer to join our engineering team. You will build scalable, high-performance web applications using ASP.NET Core and Blazor.",
-    "Location": "Ho Chi Minh City, VN",
+    "ShortDescription": "Phát triển ứng dụng web .NET quy mô lớn.",
+    "FullDescription": "Chúng tôi tìm kiếm Senior .NET Developer tham gia đội Kỹ thuật để xây dựng các ứng dụng web hiệu năng cao bằng ASP.NET Core và Blazor.",
+    "Location": "TP. Hồ Chí Minh, VN",
     "PostedDate": "2026-04-15T00:00:00",
-    "Type": "Full-time",
-    "Department": "Engineering",
+    "Type": "Toàn thời gian",
+    "Department": "Kỹ thuật",
     "Salary": "$2000 - $3000",
-    "Description": "We are looking for an experienced .NET Developer to join our engineering team. You will build scalable, high-performance web applications using ASP.NET Core and Blazor.",
+    "Description": "Tham gia phát triển ứng dụng web sử dụng ASP.NET Core và Blazor, tối ưu hiệu năng và mở rộng hệ thống.",
     "Responsibilities": [
-      "Design and develop web applications using .NET 8 & Blazor Server",
-      "Build RESTful APIs and integrate with microservices",
-      "Write clean, maintainable, and efficient code",
-      "Collaborate with UI/UX designers and product managers",
-      "Participate in code reviews and improve system performance"
+      "Thiết kế và phát triển ứng dụng web bằng .NET 8 & Blazor Server",
+      "Xây dựng API RESTful và tích hợp microservices",
+      "Viết mã sạch, dễ bảo trì và hiệu quả",
+      "Phối hợp với nhóm UI/UX và Product",
+      "Tham gia code review và tối ưu hiệu năng hệ thống"
     ],
     "Requirements": [
-      "3+ years of experience with .NET / C#",
-      "Strong knowledge of Blazor Server, ASP.NET Core",
-      "Experience with Git, CI/CD is a plus",
-      "Good problem-solving and teamwork skills",
-      "Bachelor's degree in Computer Science or related field"
+      "3+ năm kinh nghiệm với .NET / C#",
+      "Hiểu biết sâu về Blazor Server và ASP.NET Core",
+      "Kinh nghiệm với Git, CI/CD là lợi thế",
+      "Kỹ năng giải quyết vấn đề và làm việc nhóm",
+      "Tốt nghiệp đại học chuyên ngành CNTT hoặc tương đương"
     ],
     "Experience": "3+ years",
-    "Level": "Senior",
-    "RemoteType": "Hybrid / Remote",
+    "Level": "Cao cấp",
+    "RemoteType": "Kết hợp",
     "Deadline": "2026-01-31T00:00:00"
   },
   {
     "Id": 2,
     "Title": "Frontend Developer (Blazor)",
-    "ShortDescription": "Build modern UIs with Blazor.",
-    "FullDescription": "Work with designers to build responsive UIs using Blazor Server and Bootstrap. Good knowledge of CSS and JS interop is a plus.",
-    "Location": "Hanoi, Vietnam",
+    "ShortDescription": "Xây dựng giao diện hiện đại với Blazor.",
+    "FullDescription": "Làm việc cùng designer để phát triển giao diện responsive sử dụng Blazor Server và Bootstrap. Thông thạo CSS và JS interop là lợi thế.",
+    "Location": "Hà Nội, VN",
     "PostedDate": "2026-03-20T00:00:00",
-    "Type": "Full-time",
+    "Type": "Toàn thời gian",
     "Department": "Frontend",
     "Salary": "$1500 - $2500",
-    "Description": "Work with designers to build responsive UIs using Blazor Server and Bootstrap.",
+    "Description": "Phát triển component UI bằng Blazor, đảm bảo tương thích trình duyệt và tối ưu trải nghiệm người dùng.",
     "Responsibilities": [
-      "Develop UI components with Blazor",
-      "Ensure cross-browser compatibility",
-      "Work closely with backend team",
-      "Optimize UI for performance"
+      "Phát triển component giao diện bằng Blazor",
+      "Đảm bảo tương thích đa trình duyệt",
+      "Phối hợp chặt với backend",
+      "Tối ưu hiệu năng giao diện"
     ],
     "Requirements": [
-      "2+ years experience with Blazor or React/Vue",
-      "Strong CSS/HTML/JS skills",
-      "Experience with Figma/Zeplin",
-      "Attention to detail"
+      "2+ năm kinh nghiệm với Blazor hoặc React/Vue",
+      "Thành thạo CSS/HTML/JS",
+      "Kinh nghiệm với Figma/Zeplin",
+      "Tỉ mỉ trong công việc"
     ],
     "Experience": "2+ years",
-    "Level": "Mid",
-    "RemoteType": "Onsite / Remote",
+    "Level": "Trung cấp",
+    "RemoteType": "Tại chỗ/Remote",
     "Deadline": "2026-02-15T00:00:00"
   },
   {
     "Id": 3,
     "Title": "DevOps Engineer",
-    "ShortDescription": "Deploy and maintain CI/CD pipelines.",
-    "FullDescription": "Maintain infrastructure, setup pipelines on Render.com, ensure deployments are reliable and secure.",
+    "ShortDescription": "Triển khai và duy trì pipeline CI/CD.",
+    "FullDescription": "Quản lý hạ tầng, thiết lập pipeline và đảm bảo quá trình deploy an toàn, ổn định.",
     "Location": "Remote",
     "PostedDate": "2026-04-10T00:00:00",
-    "Type": "Full-time",
+    "Type": "Toàn thời gian",
     "Department": "DevOps",
     "Salary": "$1800 - $2500",
-    "Description": "Maintain infrastructure, setup pipelines on Render.com, ensure deployments are reliable and secure.",
+    "Description": "Thiết lập và duy trì hạ tầng CI/CD, tự động hóa quy trình deploy và giám sát hệ thống.",
     "Responsibilities": [
-      "Setup and maintain CI/CD pipelines",
-      "Monitor system health and uptime",
-      "Automate deployment processes",
-      "Work with security best practices"
+      "Thiết lập và duy trì pipeline CI/CD",
+      "Giám sát tình trạng hệ thống và độ khả dụng",
+      "Tự động hóa quy trình triển khai",
+      "Áp dụng best practices về bảo mật"
     ],
     "Requirements": [
-      "Experience with Docker, GitHub Actions",
-      "Knowledge of cloud platforms (AWS/Azure)",
-      "Scripting (Bash, PowerShell)",
-      "Problem-solving skills"
+      "Kinh nghiệm với Docker, GitHub Actions",
+      "Hiểu biết về cloud (AWS/Azure)",
+      "Kỹ năng scripting (Bash, PowerShell)",
+      "Khả năng giải quyết vấn đề"
     ],
     "Experience": "2+ years",
-    "Level": "Mid",
-    "RemoteType": "Remote",
+    "Level": "Trung cấp",
+    "RemoteType": "Làm từ xa",
     "Deadline": "2026-03-01T00:00:00"
   },
   {
     "Id": 4,
     "Title": "QA Engineer",
-    "ShortDescription": "Test and ensure product quality.",
-    "FullDescription": "Manual and automated testing for web applications.",
-    "Location": "Da Nang, Vietnam",
+    "ShortDescription": "Kiểm thử và đảm bảo chất lượng sản phẩm.",
+    "FullDescription": "Thực hiện kiểm thử thủ công và tự động cho ứng dụng web.",
+    "Location": "Đà Nẵng, VN",
     "PostedDate": "2026-04-12T00:00:00",
-    "Type": "Full-time",
+    "Type": "Toàn thời gian",
     "Department": "QA",
     "Salary": "$1200 - $1800",
-    "Description": "Manual and automated testing for web applications.",
+    "Description": "Lên test case, thực hiện kiểm thử tự động và theo dõi lỗi để đảm bảo chất lượng sản phẩm.",
     "Responsibilities": [
-      "Write and execute test cases",
-      "Automate regression tests",
-      "Report and track bugs",
-      "Work with developers to resolve issues"
+      "Viết và thực hiện test case",
+      "Tự động hoá kiểm thử hồi quy",
+      "Báo cáo và theo dõi lỗi",
+      "Phối hợp với developer để giải quyết vấn đề"
     ],
     "Requirements": [
-      "Experience with Selenium or Playwright",
-      "Attention to detail",
-      "Good communication skills"
+      "Kinh nghiệm với Selenium hoặc Playwright",
+      "Tỉ mỉ và chú ý chi tiết",
+      "Kỹ năng giao tiếp tốt"
     ],
     "Experience": "1+ years",
-    "Level": "Junior",
-    "RemoteType": "Onsite",
+    "Level": "Nhân viên",
+    "RemoteType": "Tại chỗ",
     "Deadline": "2026-02-28T00:00:00"
   },
   {
     "Id": 5,
     "Title": "Product Manager",
-    "ShortDescription": "Lead product development.",
-    "FullDescription": "Define product vision, work with cross-functional teams.",
-    "Location": "Ho Chi Minh City, VN",
+    "ShortDescription": "Dẫn dắt phát triển sản phẩm.",
+    "FullDescription": "Xác định tầm nhìn sản phẩm, phối hợp các nhóm chức năng để thực hiện roadmap.",
+    "Location": "TP. Hồ Chí Minh, VN",
     "PostedDate": "2026-04-05T00:00:00",
-    "Type": "Full-time",
-    "Department": "Product",
+    "Type": "Toàn thời gian",
+    "Department": "Sản phẩm",
     "Salary": "$2500 - $3500",
-    "Description": "Define product vision, work with cross-functional teams.",
+    "Description": "Lên roadmap, ưu tiên yêu cầu và phối hợp với đội kỹ thuật và thiết kế để đưa sản phẩm ra thị trường.",
     "Responsibilities": [
-      "Define product roadmap",
-      "Gather and prioritize requirements",
-      "Coordinate with engineering and design",
-      "Monitor product KPIs"
+      "Xây dựng roadmap sản phẩm",
+      "Thu thập và ưu tiên yêu cầu",
+      "Phối hợp với engineering và design",
+      "Giám sát KPI sản phẩm"
     ],
     "Requirements": [
-      "Experience as Product Owner/Manager",
-      "Strong leadership skills",
-      "Analytical mindset"
+      "Kinh nghiệm Product Owner/Manager",
+      "Kỹ năng lãnh đạo",
+      "Tư duy phân tích"
     ],
     "Experience": "3+ years",
-    "Level": "Senior",
-    "RemoteType": "Hybrid",
+    "Level": "Cao cấp",
+    "RemoteType": "Kết hợp",
     "Deadline": "2026-03-15T00:00:00"
   },
   {
     "Id": 6,
     "Title": "UI/UX Designer",
-    "ShortDescription": "Design user interfaces and experiences.",
-    "FullDescription": "Work with product and engineering to design beautiful, usable interfaces.",
+    "ShortDescription": "Thiết kế giao diện và trải nghiệm người dùng.",
+    "FullDescription": "Làm việc với product và engineering để thiết kế giao diện đẹp và dễ dùng.",
     "Location": "Remote",
     "PostedDate": "2026-04-13T00:00:00",
-    "Type": "Part-time",
-    "Department": "Design",
+    "Type": "Bán thời gian",
+    "Department": "Thiết kế",
     "Salary": "$1000 - $2000",
-    "Description": "Work with product and engineering to design beautiful, usable interfaces.",
+    "Description": "Tạo wireframe, prototype và thiết kế UI phục vụ sản phẩm.",
     "Responsibilities": [
-      "Create wireframes and prototypes",
-      "Conduct user research",
-      "Design UI assets",
-      "Collaborate with developers"
+      "Tạo wireframe và prototype",
+      "Thực hiện nghiên cứu người dùng",
+      "Thiết kế asset UI",
+      "Phối hợp với developer"
     ],
     "Requirements": [
-      "Portfolio of design projects",
-      "Experience with Figma/Sketch",
-      "Creativity and attention to detail"
+      "Portfolio các dự án thiết kế",
+      "Kinh nghiệm với Figma/Sketch",
+      "Sáng tạo và tỉ mỉ"
     ],
     "Experience": "2+ years",
-    "Level": "Mid",
-    "RemoteType": "Remote",
+    "Level": "Trung cấp",
+    "RemoteType": "Làm từ xa",
     "Deadline": "2026-03-10T00:00:00"
   },
   {
     "Id": 7,
     "Title": "Backend Developer (Node.js)",
-    "ShortDescription": "Develop backend services with Node.js.",
-    "FullDescription": "Build RESTful APIs and microservices using Node.js.",
-    "Location": "Hanoi, Vietnam",
+    "ShortDescription": "Phát triển dịch vụ backend với Node.js.",
+    "FullDescription": "Xây dựng API RESTful và microservice sử dụng Node.js.",
+    "Location": "Hà Nội, VN",
     "PostedDate": "2026-04-09T00:00:00",
-    "Type": "Full-time",
+    "Type": "Toàn thời gian",
     "Department": "Backend",
     "Salary": "$1800 - $2500",
-    "Description": "Build RESTful APIs and microservices using Node.js.",
+    "Description": "Phát triển dịch vụ backend mở rộng, tích hợp cơ sở dữ liệu và đảm bảo chất lượng mã.",
     "Responsibilities": [
-      "Develop scalable backend services",
-      "Integrate with databases",
-      "Write unit and integration tests"
+      "Phát triển dịch vụ backend quy mô",
+      "Tích hợp với database",
+      "Viết unit và integration test"
     ],
     "Requirements": [
-      "2+ years Node.js experience",
-      "Knowledge of SQL/NoSQL",
-      "Testing skills"
+      "2+ năm kinh nghiệm Node.js",
+      "Hiểu biết về SQL/NoSQL",
+      "Kinh nghiệm viết test"
     ],
     "Experience": "2+ years",
-    "Level": "Mid",
-    "RemoteType": "Onsite / Remote",
+    "Level": "Trung cấp",
+    "RemoteType": "Tại chỗ/Remote",
     "Deadline": "2026-03-20T00:00:00"
   },
   {
     "Id": 8,
     "Title": "Mobile App Developer",
-    "ShortDescription": "Build cross-platform mobile apps.",
-    "FullDescription": "Develop mobile apps using Flutter or React Native.",
+    "ShortDescription": "Phát triển ứng dụng di động đa nền tảng.",
+    "FullDescription": "Phát triển ứng dụng di động sử dụng Flutter hoặc React Native.",
     "Location": "Remote",
     "PostedDate": "2026-04-11T00:00:00",
-    "Type": "Full-time",
+    "Type": "Toàn thời gian",
     "Department": "Mobile",
     "Salary": "$1700 - $2400",
-    "Description": "Develop mobile apps using Flutter or React Native.",
+    "Description": "Phát triển ứng dụng mobile đa nền tảng và phối hợp với API backend.",
     "Responsibilities": [
-      "Develop cross-platform mobile apps",
-      "Publish apps to App Store/Google Play",
-      "Work with REST APIs"
+      "Phát triển ứng dụng mobile đa nền tảng",
+      "Đưa ứng dụng lên App Store/Google Play",
+      "Phối hợp với REST API"
     ],
     "Requirements": [
-      "Experience with Flutter/React Native",
-      "Published apps on stores",
-      "UI/UX skills"
+      "Kinh nghiệm với Flutter/React Native",
+      "Có ứng dụng đã xuất bản là lợi thế",
+      "Kỹ năng UI/UX cơ bản"
     ],
     "Experience": "1+ years",
-    "Level": "Junior",
-    "RemoteType": "Remote",
+    "Level": "Nhân viên",
+    "RemoteType": "Làm từ xa",
     "Deadline": "2026-03-25T00:00:00"
   },
   {
     "Id": 9,
     "Title": "Business Analyst",
-    "ShortDescription": "Analyze business requirements.",
-    "FullDescription": "Work with stakeholders to gather and analyze requirements.",
-    "Location": "Ho Chi Minh City, VN",
+    "ShortDescription": "Phân tích yêu cầu nghiệp vụ.",
+    "FullDescription": "Làm việc với stakeholders để thu thập và phân tích yêu cầu.",
+    "Location": "TP. Hồ Chí Minh, VN",
     "PostedDate": "2026-04-08T00:00:00",
-    "Type": "Full-time",
+    "Type": "Toàn thời gian",
     "Department": "Business",
     "Salary": "$1600 - $2200",
-    "Description": "Work with stakeholders to gather and analyze requirements.",
+    "Description": "Thu thập yêu cầu, viết user story và hỗ trợ UAT.",
     "Responsibilities": [
-      "Gather business requirements",
-      "Document user stories",
-      "Support UAT and go-live"
+      "Thu thập yêu cầu nghiệp vụ",
+      "Ghi chép user story",
+      "Hỗ trợ UAT và triển khai"
     ],
     "Requirements": [
-      "Experience as BA",
-      "Good communication skills",
-      "Analytical mindset"
+      "Kinh nghiệm BA",
+      "Kỹ năng giao tiếp tốt",
+      "Tư duy phân tích"
     ],
     "Experience": "2+ years",
-    "Level": "Mid",
-    "RemoteType": "Hybrid",
+    "Level": "Trung cấp",
+    "RemoteType": "Kết hợp",
     "Deadline": "2026-03-30T00:00:00"
   },
   {
     "Id": 10,
     "Title": "System Administrator",
-    "ShortDescription": "Maintain IT infrastructure.",
-    "FullDescription": "Manage servers, networks, and security.",
+    "ShortDescription": "Quản trị hạ tầng IT.",
+    "FullDescription": "Quản lý máy chủ, mạng và bảo mật.",
     "Location": "Remote",
     "PostedDate": "2026-04-07T00:00:00",
-    "Type": "Full-time",
+    "Type": "Toàn thời gian",
     "Department": "IT",
     "Salary": "$1700 - $2300",
-    "Description": "Manage servers, networks, and security.",
+    "Description": "Duy trì và giám sát server, đảm bảo an ninh mạng và sao lưu.",
     "Responsibilities": [
-      "Maintain and monitor servers",
-      "Ensure network security",
-      "Backup and disaster recovery"
+      "Duy trì và giám sát server",
+      "Đảm bảo an ninh mạng",
+      "Sao lưu và khôi phục dữ liệu"
     ],
     "Requirements": [
-      "Linux/Windows admin skills",
-      "Network security knowledge",
-      "Backup/restore experience"
+      "Kỹ năng quản trị Linux/Windows",
+      "Kiến thức an ninh mạng",
+      "Kinh nghiệm sao lưu/khôi phục"
     ],
     "Experience": "2+ years",
-    "Level": "Mid",
-    "RemoteType": "Remote",
+    "Level": "Trung cấp",
+    "RemoteType": "Làm từ xa",
     "Deadline": "2026-03-28T00:00:00"
   },
   {
     "Id": 11,
     "Title": "Content Writer",
-    "ShortDescription": "Write engaging content for web.",
-    "FullDescription": "Create blog posts, guides, and marketing content.",
+    "ShortDescription": "Viết nội dung hấp dẫn cho web.",
+    "FullDescription": "Tạo bài blog, hướng dẫn và nội dung marketing.",
     "Location": "Remote",
     "PostedDate": "2026-04-06T00:00:00",
-    "Type": "Part-time",
+    "Type": "Bán thời gian",
     "Department": "Marketing",
     "Salary": "$800 - $1200",
-    "Description": "Create blog posts, guides, and marketing content.",
+    "Description": "Sản xuất nội dung blog, chỉnh sửa và tối ưu SEO.",
     "Responsibilities": [
-      "Write blog posts and articles",
-      "Edit and proofread content",
-      "Work with SEO best practices"
+      "Viết bài blog và bài PR",
+      "Chỉnh sửa và hiệu đính nội dung",
+      "Áp dụng best practices SEO"
     ],
     "Requirements": [
-      "Excellent writing skills",
-      "SEO knowledge",
-      "Creativity"
+      "Kỹ năng viết tốt",
+      "Hiểu biết về SEO",
+      "Sáng tạo"
     ],
     "Experience": "1+ years",
-    "Level": "Junior",
-    "RemoteType": "Remote",
+    "Level": "Nhân viên",
+    "RemoteType": "Làm từ xa",
     "Deadline": "2026-03-22T00:00:00"
   },
   {
     "Id": 12,
     "Title": "Scrum Master",
-    "ShortDescription": "Facilitate agile ceremonies.",
-    "FullDescription": "Guide teams in agile best practices and remove impediments.",
-    "Location": "Hanoi, Vietnam",
+    "ShortDescription": "Điều phối các buổi Agile.",
+    "FullDescription": "Hướng dẫn team áp dụng Agile và loại bỏ trở ngại.",
+    "Location": "Hà Nội, VN",
     "PostedDate": "2026-04-04T00:00:00",
-    "Type": "Full-time",
+    "Type": "Toàn thời gian",
     "Department": "Agile",
     "Salary": "$2000 - $2700",
-    "Description": "Guide teams in agile best practices and remove impediments.",
+    "Description": "Hỗ trợ team áp dụng Agile, thúc đẩy hiệu suất và chất lượng.",
     "Responsibilities": [
-      "Facilitate daily standups, sprint planning",
-      "Remove team impediments",
-      "Coach agile principles"
+      "Điều phối daily standup, sprint planning",
+      "Loại bỏ trở ngại cho team",
+      "Đào tạo và coaching Agile"
     ],
     "Requirements": [
-      "Certified Scrum Master",
-      "Experience with agile teams",
-      "Strong communication skills"
+      "Chứng chỉ Scrum Master là lợi thế",
+      "Kinh nghiệm làm việc với team Agile",
+      "Kỹ năng giao tiếp tốt"
     ],
     "Experience": "2+ years",
-    "Level": "Mid",
-    "RemoteType": "Hybrid",
+    "Level": "Trung cấp",
+    "RemoteType": "Kết hợp",
     "Deadline": "2026-03-18T00:00:00"
   }
 ]

@@ -6,7 +6,7 @@
 @if (job == null)
 {
   <div class="container py-5">
-    <div class="alert alert-warning text-center">Job not found.</div>
+    <div class="alert alert-warning text-center">Không tìm thấy công việc.</div>
   </div>
 }
 else
@@ -15,7 +15,7 @@ else
     <div class="container">
       <div class="mb-3">
         <a class="btn btn-light shadow-sm px-4 py-2 fw-semibold" href="/jobs">
-          <i class="fas fa-arrow-left me-2"></i> Back to Jobs
+          <i class="fas fa-arrow-left me-2"></i> Quay về danh sách
         </a>
       </div>
       <div class="row g-4">
@@ -33,16 +33,16 @@ else
               <span><i class="fas fa-calendar-alt me-1"></i> Posted @job.PostedDate.ToString("MMM dd, yyyy")</span>
             </div>
             <hr />
-            <h5 class="fw-bold mb-2">Job Description</h5>
+            <h5 class="fw-bold mb-2">Mô tả công việc</h5>
             <p>@job.Description</p>
-            <h6 class="fw-bold mt-4 mb-2">Responsibilities</h6>
+            <h6 class="fw-bold mt-4 mb-2">Trách nhiệm</h6>
             <ul class="list-unstyled ms-2">
               @foreach (var resp in job.Responsibilities ?? new List<string>())
               {
                 <li class="mb-1"><i class="fas fa-check-circle text-primary me-2"></i>@resp</li>
               }
             </ul>
-            <h6 class="fw-bold mt-4 mb-2">Requirements</h6>
+            <h6 class="fw-bold mt-4 mb-2">Yêu cầu</h6>
             <ul class="list-unstyled ms-2">
               @foreach (var req in job.Requirements ?? new List<string>())
               {
@@ -50,37 +50,37 @@ else
               }
             </ul>
             <div class="d-flex gap-3 mt-4">
-              <button class="btn btn-primary btn-lg px-4 fw-bold">Apply Now</button>
-              <button class="btn btn-outline-primary btn-lg px-4 fw-bold">Save Job</button>
+              <button class="btn btn-primary btn-lg px-4 fw-bold">Ứng tuyển ngay</button>
+              <button class="btn btn-outline-primary btn-lg px-4 fw-bold">Lưu công việc</button>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="bg-white rounded-4 shadow-sm p-4 mb-4">
-            <h5 class="fw-bold mb-3">Company</h5>
+            <h5 class="fw-bold mb-3">Công ty</h5>
             <div class="d-flex align-items-center mb-2">
               <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width:48px;height:48px;font-size:1.5rem;">JF</div>
               <div class="ms-3">
                 <div class="fw-bold">JobFinder Inc.</div>
-                <div class="text-muted small">Technology · 50-200 employees</div>
+                <div class="text-muted small">Công nghệ · 50-200 nhân viên</div>
               </div>
             </div>
             <div class="mt-2 mb-1"><i class="fas fa-globe me-2"></i> www.jobfinder.com</div>
             <div class="mb-1"><i class="fas fa-envelope me-2"></i> hr@jobfinder.com</div>
-            <div class="mb-1"><i class="fas fa-map-marker-alt me-2"></i> Ho Chi Minh City, Vietnam</div>
+            <div class="mb-1"><i class="fas fa-map-marker-alt me-2"></i> TP. Hồ Chí Minh, Việt Nam</div>
           </div>
           <div class="bg-white rounded-4 shadow-sm p-4 mb-4">
-            <h5 class="fw-bold mb-3">Job Highlights</h5>
+            <h5 class="fw-bold mb-3">Thông tin nổi bật</h5>
             <div class="d-flex flex-column gap-2">
-              <div><i class="fas fa-briefcase me-2 text-primary"></i> <b>Employment Type:</b> @job.Type</div>
-              <div><i class="fas fa-user-tie me-2 text-primary"></i> <b>Experience:</b> @job.Experience</div>
-              <div><i class="fas fa-layer-group me-2 text-primary"></i> <b>Level:</b> @job.Level</div>
-              <div><i class="fas fa-house-laptop me-2 text-primary"></i> <b>Remote:</b> @job.RemoteType</div>
-              <div><i class="fas fa-calendar-day me-2 text-primary"></i> <b>Deadline:</b> @job.Deadline?.ToString("MMM dd, yyyy")</div>
+              <div><i class="fas fa-briefcase me-2 text-primary"></i> <b>Hình thức:</b> @job.Type</div>
+              <div><i class="fas fa-user-tie me-2 text-primary"></i> <b>Kinh nghiệm:</b> @job.Experience</div>
+              <div><i class="fas fa-layer-group me-2 text-primary"></i> <b>Trình độ:</b> @job.Level</div>
+              <div><i class="fas fa-house-laptop me-2 text-primary"></i> <b>Làm từ xa:</b> @job.RemoteType</div>
+              <div><i class="fas fa-calendar-day me-2 text-primary"></i> <b>Hạn nộp:</b> @job.Deadline?.ToString("MMM dd, yyyy")</div>
             </div>
           </div>
           <div class="bg-white rounded-4 shadow-sm p-4 mb-4">
-            <h5 class="fw-bold mb-3">Share Job</h5>
+            <h5 class="fw-bold mb-3">Chia sẻ công việc</h5>
             <div class="d-flex gap-3">
               <a href="#" class="footer-social"><i class="fab fa-facebook-f"></i></a>
               <a href="#" class="footer-social"><i class="fab fa-linkedin-in"></i></a>

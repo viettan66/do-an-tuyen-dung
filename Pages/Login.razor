@@ -10,7 +10,7 @@
     <div class="glass-card p-4 p-md-5 shadow-lg" style="max-width: 420px; width: 100%;">
       <div class="text-center mb-4">
         <span style="font-size:2.2rem;">🔒</span>
-        <span class="fw-bold ms-2" style="font-size:1.7rem; color:#223366; vertical-align:middle;">Login</span>
+        <span class="fw-bold ms-2" style="font-size:1.7rem; color:#223366; vertical-align:middle;">Đăng nhập</span>
       </div>
 
       <EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
@@ -18,18 +18,18 @@
         <ValidationSummary />
 
         <div class="mb-3">
-          <InputText class="form-control form-control-lg rounded-3 shadow-sm" @bind-Value="loginModel.Username" placeholder="Username" />
+          <InputText class="form-control form-control-lg rounded-3 shadow-sm" @bind-Value="loginModel.Username" placeholder="Tên đăng nhập" />
         </div>
         <div class="mb-3">
-          <InputText type="password" class="form-control form-control-lg rounded-3 shadow-sm" @bind-Value="loginModel.Password" placeholder="Password" />
+          <InputText type="password" class="form-control form-control-lg rounded-3 shadow-sm" @bind-Value="loginModel.Password" placeholder="Mật khẩu" />
         </div>
 
         <button class="btn btn-primary btn-lg w-100 fw-bold shadow-sm" type="submit" disabled="@isLoading" style="background: linear-gradient(90deg,#3576d1,#3e4fa8); border:none;">
           @if(isLoading) {
             <span class="spinner-border spinner-border-sm me-2"></span>
-            <span>Login...</span>
+            <span>Đang đăng nhập...</span>
           } else {
-            <span>Login</span>
+            <span>Đăng nhập</span>
           }
         </button>
 
@@ -43,7 +43,7 @@
     </div>
   </div>
   <footer class="login-footer text-center py-4 mt-auto">
-    <div class="mb-2" style="color:#e0e6f6; font-size:1rem;">© 2026 <span class="fw-bold">JobFinder</span>. All rights reserved.</div>
+    <div class="mb-2" style="color:#e0e6f6; font-size:1rem;">© 2026 <span class="fw-bold">JobFinder</span>. Đã đăng ký bản quyền.</div>
     <div class="d-flex justify-content-center gap-3">
       <a href="#" class="footer-social"><i class="fab fa-facebook-f"></i></a>
       <a href="#" class="footer-social"><i class="fab fa-linkedin-in"></i></a>
@@ -63,7 +63,7 @@
       {
         if (string.IsNullOrWhiteSpace(loginModel.Username) || string.IsNullOrWhiteSpace(loginModel.Password))
         {
-          error = "Please fill in all fields";
+          error = "Vui lòng điền đầy đủ thông tin";
           return;
         }
         isLoading = true;
@@ -87,7 +87,7 @@
             }
             else if (res.StatusCode == System.Net.HttpStatusCode.Unauthorized)
             {
-                error = "Invalid username or password";
+              error = "Tên đăng nhập hoặc mật khẩu không đúng";
             }
             else
             {
@@ -98,13 +98,13 @@
         }
         catch (System.Threading.Tasks.TaskCanceledException)
         {
-            Console.WriteLine("[ERROR] Login request timed out");
-            error = "Request timed out. Please check your connection.";
+          Console.WriteLine("[ERROR] Login request timed out");
+          error = "Yêu cầu hết thời gian. Vui lòng kiểm tra kết nối.";
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"[ERROR] Login exception: {ex.Message}");
-            error = $"Error: {ex.Message}";
+          Console.WriteLine($"[ERROR] Login exception: {ex.Message}");
+          error = $"Lỗi: {ex.Message}";
         }
         finally
         {

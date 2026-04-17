@@ -1,4 +1,4 @@
 [
-  { "Username": "admin", "Password": "password", "DisplayName": "Admin User" },
-  { "Username": "user", "Password": "password", "DisplayName": "Regular User" }
+  { "Username": "admin", "Password": "123456", "DisplayName": "Quản trị viên" },
+  { "Username": "user", "Password": "123456", "DisplayName": "Người dùng" }
 ]

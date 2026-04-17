@@ -10,11 +10,11 @@
             <span class="text-light fw-semibold">
                 👤 @context.User.Identity?.Name
             </span>
-            <button class="btn btn-outline-light btn-sm" @onclick="Logout">Logout</button>
+            <button class="btn btn-outline-light btn-sm" @onclick="Logout">Đăng xuất</button>
         </div>
     </Authorized>
     <NotAuthorized>
-        <a class="btn btn-outline-light btn-sm" href="/login">Login</a>
+        <a class="btn btn-outline-light btn-sm" href="/login">Đăng nhập</a>
     </NotAuthorized>
 </AuthorizeView>
 
