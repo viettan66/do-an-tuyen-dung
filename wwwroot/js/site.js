@@ -52,8 +52,10 @@ window.jobBoard = (function() {
     },
 
     logout: async function(url) {
+      console.log('[jobBoard] logout: sending POST to', url);
       const res = await fetch(url, { method: 'POST', credentials: 'same-origin' });
       const text = await res.text();
+      console.log('[jobBoard] logout: response', res.status, text);
       return { status: res.status, text };
     },
 

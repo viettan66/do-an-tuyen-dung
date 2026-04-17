@@ -11,7 +11,7 @@
         <div class="d-flex align-items-center gap-2">
             <span class="text-light fw-semibold d-flex align-items-center">
                 <span class="me-2">👤</span>
-                <span>@(displayName ?? context.User.Identity?.Name)</span>
+                <span>@(displayName ?? authState?.User?.Identity?.Name)</span>
             </span>
             <button class="btn btn-outline-light btn-sm" @onclick="Logout">Đăng xuất</button>
         </div>
@@ -48,15 +48,25 @@
         {
             // Call logout from browser so cookie clearance Set-Cookie is applied
             var jsRes = await JSRuntime.InvokeAsync<System.Text.Json.JsonElement>("jobBoard.logout", "/api/auth/logout");
-            var status = jsRes.GetProperty("status").GetInt32();
+            Console.WriteLine($"[DEBUG] Logout raw jsRes: {jsRes}");
+            int status = 0;
+            if (jsRes.ValueKind == System.Text.Json.JsonValueKind.Object && jsRes.TryGetProperty("status", out var sProp) && sProp.ValueKind == System.Text.Json.JsonValueKind.Number)
+            {
+                status = sProp.GetInt32();
+            }
             Console.WriteLine($"[DEBUG] Logout status: {status}");
+            if (status != 200)
+            {
+                // show an alert for debugging; still navigate home
+                try { await JSRuntime.InvokeVoidAsync("alert", $"Logout returned status {status}"); } catch { }
+            }
             // small delay to let browser update cookies
             await Task.Delay(250);
             Nav.NavigateTo("/", forceLoad: true);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Logout error: {ex.Message}");
+            Console.WriteLine($"Logout error: {ex}");
             Nav.NavigateTo("/", forceLoad: true);
         }
     }
