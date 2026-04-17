@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <div class="input-group input-group-lg">
-                        <input type="text" class="form-control" placeholder="Tìm kiếm việc..." @bind="searchQuery" @oninput="HandleSearch" />
+                        <input type="text" class="form-control" placeholder="Tìm kiếm việc..." @bind="searchQuery" @bind:event="oninput" />
                     <button class="btn btn-primary" type="button" @onclick="HandleSearch">🔍</button>
                 </div>
             </div>
