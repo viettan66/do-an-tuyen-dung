@@ -40,7 +40,12 @@ builder.Services.AddScoped(sp =>
 
 // Cookie authentication
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
+    .AddCookie();
+
+// Configure cookie options separately to avoid capturing local variables in lambdas
+builder.Services.Configure<Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions>(
+    CookieAuthenticationDefaults.AuthenticationScheme,
+    options =>
     {
         options.Cookie.Name = "JobBoardAuth";
         options.ExpireTimeSpan = TimeSpan.FromDays(2);
