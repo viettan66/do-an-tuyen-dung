@@ -19,9 +19,11 @@
 </AuthorizeView>
 
 @code {
-    protected override void OnInitialized()
+    private AuthenticationState? authState;
+
+    protected override async Task OnInitializedAsync()
     {
-        // Force refresh auth state when component initializes
+        authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         StateHasChanged();
     }
 
@@ -30,6 +32,7 @@
         try
         {
             await Http.PostAsync("/api/auth/logout", null);
+            await Task.Delay(500);
             Nav.NavigateTo("/", forceLoad: true);
         }
         catch (Exception ex)

@@ -79,8 +79,8 @@
             {
                 var responseText = await res.Content.ReadAsStringAsync();
                 Console.WriteLine($"[DEBUG] Login successful: {responseText}");
-                // Wait slightly for cookie to be fully set, then reload page to refresh auth context
-                await Task.Delay(500);
+                // Wait for cookie to be set, then reload full page to refresh Blazor circuit and auth state
+                await Task.Delay(1000);
                 Nav.NavigateTo("/", forceLoad: true);
             }
             else if (res.StatusCode == System.Net.HttpStatusCode.Unauthorized)
