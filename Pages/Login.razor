@@ -80,8 +80,8 @@
             {
                 var responseText = await res.Content.ReadAsStringAsync();
                 Console.WriteLine($"[DEBUG] Login successful: {responseText}");
-                // Wait for cookie to be set, then navigate home with full page reload
-                await Task.Delay(1500);
+                // Delay to ensure cookie is set, then navigate using forceLoad
+                await Task.Delay(800);
                 Nav.NavigateTo("/", forceLoad: true);
             }
             else if (res.StatusCode == System.Net.HttpStatusCode.Unauthorized)
