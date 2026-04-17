@@ -83,7 +83,7 @@
               // Wait for cookie to settle
               await Task.Delay(500);
               // Force full reload so Blazor picks up new auth state and header updates
-              await JSRuntime.InvokeVoidAsync("eval", "window.location.replace(window.location.origin + '/')");
+              await JSRuntime.InvokeVoidAsync("eval", "window.location.reload(true)");
             }
             else if (res.StatusCode == System.Net.HttpStatusCode.Unauthorized)
             {

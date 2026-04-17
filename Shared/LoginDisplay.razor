@@ -21,8 +21,16 @@
 @code {
     private AuthenticationState? authState;
 
+
     protected override async Task OnInitializedAsync()
     {
+        authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        StateHasChanged();
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        // Đảm bảo component luôn cập nhật khi có thay đổi auth state
         authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         StateHasChanged();
     }
