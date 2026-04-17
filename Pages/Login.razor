@@ -1,6 +1,7 @@
 @page "/login"
 @inject HttpClient Http
 @inject NavigationManager Nav
+@inject IJSRuntime JSRuntime
 
 
 <div class="login-bg-gradient min-vh-100 d-flex flex-column justify-content-between">
@@ -79,9 +80,9 @@
             {
                 var responseText = await res.Content.ReadAsStringAsync();
                 Console.WriteLine($"[DEBUG] Login successful: {responseText}");
-                // Wait for cookie to be set, then reload full page to refresh Blazor circuit and auth state
-                await Task.Delay(1000);
-                Nav.NavigateTo("/", forceLoad: true);
+                // Wait for cookie to be set, then reload full page with JavaScript
+                await Task.Delay(1500);
+                await JSRuntime.InvokeVoidAsync("location.reload");
             }
             else if (res.StatusCode == System.Net.HttpStatusCode.Unauthorized)
             {
