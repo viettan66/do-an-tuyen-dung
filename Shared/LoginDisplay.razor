@@ -55,7 +55,7 @@
         }
     }
 
-    private async Task OnAuthStateChanged(Task<AuthenticationState> task)
+    private async void OnAuthStateChanged(Task<AuthenticationState> task)
     {
         // Khi auth state thay đổi, cập nhật tên hiển thị và re-render component
         try
