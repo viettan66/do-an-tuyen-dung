@@ -77,11 +77,15 @@ window.jobBoard = (function() {
 
           const title = hero.querySelector('h1');
           const lead = hero.querySelector('p.lead');
+          const emojiEl = hero.querySelector('.hero-emoji');
           if (title && title.dataset && title.dataset['slide' + current]) {
             title.textContent = title.dataset['slide' + current];
           }
           if (lead && lead.dataset && lead.dataset['slide' + current]) {
             lead.textContent = lead.dataset['slide' + current];
+          }
+          if (emojiEl && emojiEl.dataset && emojiEl.dataset['slide' + current]) {
+            emojiEl.textContent = emojiEl.dataset['slide' + current];
           }
         }
 
