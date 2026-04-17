@@ -98,6 +98,8 @@ else
   [Parameter]
     public int id { get; set; }
 
+  private JobPosting? job;
+
   protected override void OnInitialized()
   {
     job = DataService.GetJobById(id);
