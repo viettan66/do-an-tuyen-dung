@@ -15,9 +15,7 @@
         @foreach (var job in jobs)
         {
             <div class="col">
-                <div class="card h-100 job-card shadow-sm border-0 animate-fade-in"
-                     @onclick="() => NavigateTo(job.Id)"
-                     style="cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">
+                <a href="/job/@job.Id" class="card h-100 job-card shadow-sm border-0 animate-fade-in text-decoration-none" style="cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">
                     
                     <div class="position-relative overflow-hidden" style="height: 150px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                         <div class="position-absolute w-100 h-100 d-flex align-items-center justify-content-center text-white" style="font-size: 50px;">
@@ -36,7 +34,7 @@
                             <span class="ms-2">@job.PostedDate.ToString("yyyy-MM-dd")</span>
                         </small>
                     </div>
-                </div>
+                </a>
             </div>
         }
     </div>
