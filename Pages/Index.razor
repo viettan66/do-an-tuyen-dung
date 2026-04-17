@@ -64,9 +64,7 @@
             @foreach (var job in filteredJobs)
             {
                 <div class="col">
-                    <div class="card h-100 job-card shadow-sm border-0 animate-fade-in"
-                         @onclick="() => NavigateTo(job.Id)"
-                         style="cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">
+                    <a href="/job/@job.Id" class="card h-100 job-card shadow-sm border-0 animate-fade-in text-decoration-none" style="cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">
                         
                         <!-- Job Card Image -->
                         <div class="position-relative overflow-hidden" style="height: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
@@ -86,7 +84,7 @@
                                 <span class="ms-2">@job.PostedDate.ToString("yyyy-MM-dd")</span>
                             </small>
                         </div>
-                    </div>
+                    </a>
                 </div>
             }
         </div>
