@@ -10,8 +10,10 @@
     {
         if (firstRender)
         {
-            await JS.InvokeVoidAsync("jobBoard.initBackToTop", "backToTopBtn");
+            await JS.InvokeVoidAsync("jobBoard.initBackToTop");
             await JS.InvokeVoidAsync("jobBoard.initFadeIn");
+            // initialize hero slider in the home page
+            await JS.InvokeVoidAsync("jobBoard.initHeroSlider", ".hero-section");
         }
     }
 }
